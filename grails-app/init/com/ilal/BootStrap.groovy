@@ -27,6 +27,14 @@ class BootStrap {
             if (!organizer.authorities.contains(organizerRole)) {
                 UserRole.create(organizer, organizerRole, true)
             }
+
+            def organizer2 = User.findByUsername('ilal') ?: new User(
+                    username: 'ilal',
+                    password: 'password'
+            ).save(failOnError: true)
+            if (!organizer2.authorities.contains(organizerRole)) {
+                UserRole.create(organizer2, organizerRole, true)
+            }
         }
     }
 

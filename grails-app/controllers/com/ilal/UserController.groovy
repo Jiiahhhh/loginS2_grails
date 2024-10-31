@@ -6,6 +6,7 @@ import org.springframework.security.access.annotation.Secured
 class UserController {
 
     def index() {
-        render(view: 'userDashboard')
+        def events = Event.list()
+        [events: events]
     }
 }
